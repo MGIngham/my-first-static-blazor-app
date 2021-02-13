@@ -1,0 +1,16 @@
+﻿@page "/palabras"
+@using BlazorApp.Shared
+<h3>Palabras</h3>
+
+<h4>@palabra.SpanishWord</h4>
+
+@code {
+
+    Palabra palabra = new Palabra
+    {
+        Id = 1,
+        SpanishWord = "Cama",
+        EnglishWord = "Bed"
+    };
+
+}
