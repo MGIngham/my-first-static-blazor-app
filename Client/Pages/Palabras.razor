@@ -1,16 +1,31 @@
 ﻿@page "/palabras"
 @using BlazorApp.Shared
+@inject HttpClient Http
+
 <h3>Palabras</h3>
 
-<h4>@palabra.SpanishWord</h4>
+@if(palabra == null)
+{
+    <h4>It's on it's way!</h4>
+} else
+{
+    <h4>@palabra.SpanishWord</h4>
+}
 
 @code {
 
-    Palabra palabra = new Palabra
+    private Palabra palabra;
+
+    protected override async Task OnInitializedAsync()
     {
-        Id = 1,
-        SpanishWord = "Cama",
-        EnglishWord = "Bed"
-    };
+        try
+        {
+            palabra = await Http.GetFromJsonAsync<Palabra>("/api/GetPalabras");
+        } catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+
+    }
 
 }
