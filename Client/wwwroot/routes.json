@@ -7,12 +7,11 @@
     },
     {
       "route": "/palabras",
-      "allowedRoles": [ "user" ]
+      "allowedRoles": [ "authenticated" ]
     },
     {
-      "route": "/palabras",
-      "serve": "/",
-      "statusCode":  301
-    }
+      "route": "/lognin",
+      "serve": "/.auth/login/google"
+    } 
   ]
 }
