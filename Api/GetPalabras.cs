@@ -8,6 +8,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using BlazorApp.Shared;
+using System.Collections.Generic;
+using Microsoft.Azure.Documents.Client;
+using Microsoft.Azure.Documents.Linq;
+using System.Linq;
+using System.Net;
 
 namespace BlazorApp.Api
 {
@@ -16,18 +21,17 @@ namespace BlazorApp.Api
         [FunctionName("GetPalabras")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
+            [CosmosDB(
+                databaseName: "palabras",
+                collectionName: "ContainerMain",
+                SqlQuery = "SELECT * FROM ContainerMain",
+                ConnectionStringSetting = "PalabrasConnectionString")]
+                IEnumerable<Palabra> item,
             ILogger log)
         {
 
 
-            Palabra palabra = new Palabra
-            {
-                Id = 1,
-                SpanishWord = "Cama",
-                EnglishWord = "Bed"
-            };
-
-            return new OkObjectResult(palabra);
+            return new OkObjectResult(item);
         }
     }
 }

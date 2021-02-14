@@ -4,23 +4,27 @@
 
 <h3>Palabras</h3>
 
-@if(palabra == null)
+@if(palabras == null)
 {
     <h4>It's on it's way!</h4>
 } else
 {
-    <h4>@palabra.SpanishWord</h4>
+    @foreach(var palabra in palabras)
+    {
+        <h4>@palabra.SpanishWord</h4>
+    }
 }
 
 @code {
 
-    private Palabra palabra;
+    //private Palabra palabra;
+    IEnumerable<Palabra> palabras;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            palabra = await Http.GetFromJsonAsync<Palabra>("/api/GetPalabras");
+            palabras = await Http.GetFromJsonAsync<IEnumerable<Palabra>>("/api/GetPalabras");
         } catch (Exception ex)
         {
             Console.WriteLine(ex.ToString());
