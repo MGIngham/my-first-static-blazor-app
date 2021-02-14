@@ -3,11 +3,16 @@
     {
       "route": "/*",
       "serve": "/index.html",
-      "statusCode": 200
+      "statusCode": 200,
     },
     {
       "route": "/palabras",
-      "allowedRoles": ["user"]
+      "allowedRoles": [ "user" ]
+    },
+    {
+      "route": "/palabras",
+      "serve": "/",
+      "statusCode":  301
     }
   ]
 }
