@@ -3,14 +3,14 @@
     {
       "route": "/*",
       "serve": "/index.html",
-      "statusCode": 200,
+      "statusCode": 200
     },
     {
       "route": "/palabras",
-      "allowedRoles": [ "authenticated" ]
+      "allowedRoles": [ "user" ]
     },
     {
-      "route": "/lognin",
+      "route": "/palabras",
       "serve": "/.auth/login/google"
     } 
   ]
