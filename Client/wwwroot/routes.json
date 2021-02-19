@@ -3,6 +3,14 @@
     {
       "route": "/api/*",
       "allowedRoles": [ "authenticated" ]
+    },
+    {
+      "route": "/*",
+      "serve": "/.auth/login/google"
+    },
+    {
+      "route": "/.auth/login/google",
+      "statusCode": "404"
     }
   ]
 }
