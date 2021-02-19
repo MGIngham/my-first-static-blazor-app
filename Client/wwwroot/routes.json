@@ -1,17 +1,8 @@
 {
   "routes": [
     {
-      "route": "/*",
-      "serve": "/index.html",
-      "statusCode": 200
-    },
-    {
-      "route": "/palabras",
-      "allowedRoles": [ "user" ]
-    },
-    {
-      "route": "/palabras",
-      "serve": "/.auth/login/google"
-    } 
+      "route": "/api/*",
+      "allowedRoles": [ "authenticated" ]
+    }
   ]
 }
