@@ -1,11 +1,8 @@
 {
-  "routes": [{
-      "route": "/api/*",
-      "serve": "/.auth/login/google"
-    },
+  "routes": [
     {
-      "route": "/.auth/login/google",
-      "statusCode": "404"
+      "route": "/api/*",
+      "allowedRoles": "user"
     }
   ]
 }
