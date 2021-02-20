@@ -36,7 +36,16 @@
     {
         try
         {
-            await Http.PostAsJsonAsync<Palabra> ("/api/AddPalabra")
+            var palabra = new Palabra
+            {
+                Id = 3,
+                SpanishWord = "Gato",
+                EnglishWord = "Cat"
+            };
+            await Http.PostAsJsonAsync<Palabra>("/api/AddPalabra", palabra);
+        } catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
         }
     }
 
