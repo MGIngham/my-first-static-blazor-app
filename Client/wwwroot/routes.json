@@ -7,7 +7,7 @@
   ],
   "platformErrorOverrides": [
     {
-      "errorType": "Unauthorized",
+      "errorType": "Unauthenticated",
       "serve": "/login"
     }
   ]
