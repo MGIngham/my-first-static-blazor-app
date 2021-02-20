@@ -13,7 +13,7 @@
   "platformErrorOverrides": [
     {
       "errorType": "Unauthenticated",
-      "route": "/login"
+      "serve": "/login"
     }
   ]
 }
