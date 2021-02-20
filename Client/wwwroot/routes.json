@@ -2,7 +2,13 @@
   "routes": [
     {
       "route": "/api/*",
-      "allowedRoles": ["user"]
+      "allowedRoles": [ "user" ]
+    }
+  ],
+  "platformErrorOverrides": [
+    {
+      "errorType": "Unauthenticated",
+      "serve": "/login"
     }
   ]
 }
