@@ -1,6 +1,7 @@
 ﻿@page "/palabras"
 @using BlazorApp.Shared
 @inject HttpClient Http
+@inject NavigationManager Nav
 
 <h3>Palabras</h3>
 
@@ -28,6 +29,7 @@
         } catch (Exception ex)
         {
             Console.WriteLine(ex.ToString());
+            Nav.NavigateTo("/login");
         }
 
     }
